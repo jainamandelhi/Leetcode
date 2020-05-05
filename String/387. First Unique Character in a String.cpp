@@ -1,18 +1,13 @@
 class Solution {
 public:
-    bool canConstruct(string b, string a) {
-        int n = a.size();
-        int m = b.size();
-        map<char,int>m1,m2;
+    int firstUniqChar(string s) {
+        map<char,int>m;
+        int n = s.size();
         for(int i = 0; i < n; i++)
-            m1[a[i]]++;
-        for(int i = 0; i < m; i++)
-            m2[b[i]]++;
-        for(int i = 0; i < m; i++)
-        {
-            if(m1[b[i]] < m2[b[i]])
-                return false;
-        }
-        return true;
+            m[s[i]]++;
+        for(int i = 0; i < n; i++)
+            if(m[s[i]] == 1)
+                return i;
+        return -1;
     }
 };
